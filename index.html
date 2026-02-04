@@ -107,7 +107,75 @@
     <section id="videojuego">
         <h2>Videojuego</h2>
         <p>
-		aqui va el juego
+		<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Juego sencillo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #f0f0f0;
+    }
+
+    #gameArea {
+      width: 400px;
+      height: 400px;
+      background: white;
+      border: 2px solid #333;
+      margin: 20px auto;
+      position: relative;
+    }
+
+    #box {
+      width: 50px;
+      height: 50px;
+      background: red;
+      position: absolute;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎯 Atrapa el cuadrado</h1>
+  <p>Puntos: <span id="score">0</span></p>
+
+  <div id="gameArea">
+    <div id="box"></div>
+  </div>
+
+  <script>
+    const box = document.getElementById("box");
+    const gameArea = document.getElementById("gameArea");
+    const scoreText = document.getElementById("score");
+
+    let score = 0;
+
+    function moveBox() {
+      const maxX = gameArea.clientWidth - box.clientWidth;
+      const maxY = gameArea.clientHeight - box.clientHeight;
+
+      const x = Math.random() * maxX;
+      const y = Math.random() * maxY;
+
+      box.style.left = x + "px";
+      box.style.top = y + "px";
+    }
+
+    box.addEventListener("click", () => {
+      score++;
+      scoreText.textContent = score;
+      moveBox();
+    });
+
+    moveBox();
+  </script>
+
+</body>
+</html>
+
         </p>
     </section>
 
@@ -139,6 +207,7 @@ s0.parentNode.insertBefore(s1,s0);
 </body>
 
 </html>
+
 
 
 
